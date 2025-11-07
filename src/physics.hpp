@@ -1,16 +1,15 @@
-#ifndef PARTICLE_HPP
-#define PARTICLE_HPP
+#pragma once
 
-struct Particle {
-    float x, y;      // position
-    float vx, vy;    // velocity
-    float r;         // radius
-    int id;         
-    bool collided; 
-    
-    Particle() : x(0), y(0), vx(0), vy(0), r(0), id(-1), collided(false) {}
-    Particle(float x, float y, float vx, float vy, float r, int id)
-        : x(x), y(y), vx(vx), vy(vy), r(r), id(id), collided(false) {}
-};
+#include "particle.hpp"
+#include <vector>
 
-#endif 
+namespace physics {
+    void integrate(std::vector<Particle>& particles, float dt);
+    void handle_walls(std::vector<Particle>& particles, float box_w, float box_h, float r);
+    bool circle_overlap(const Particle& a, const Particle& b);
+    void resolve_collision(Particle& a, Particle& b);
+    void positional_correction(Particle& a, Particle& b, float epsilon = 0.01f);
+    float total_energy(const std::vector<Particle>& particles);
+}
+
+

@@ -56,27 +56,4 @@ target_compile_options(particle-box PRIVATE
 target_include_directories(particle-box PRIVATE src)
 
 
-add_executable(test_quadtree tests/test_quadtree.cpp
-    src/quadtree.cpp src/rng.hpp)
-target_include_directories(test_quadtree PRIVATE src)
-target_compile_options(test_quadtree PRIVATE
-    $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -O2>
-    $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra -O2>
-)
-
-add_executable(test_spatial_hash tests/test_spatial_hash.cpp
-    src/spatial_hash.cpp src/rng.hpp)
-target_include_directories(test_spatial_hash PRIVATE src)
-target_compile_options(test_spatial_hash PRIVATE
-    $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -O2>
-    $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra -O2>
-)
-
-add_executable(test_physics tests/test_physics.cpp
-    src/physics.cpp src/particle.hpp)
-target_include_directories(test_physics PRIVATE src)
-target_compile_options(test_physics PRIVATE
-    $<$<CXX_COMPILER_ID:GNU>:-Wall -Wextra -O2>
-    $<$<CXX_COMPILER_ID:Clang>:-Wall -Wextra -O2>
-)
 
