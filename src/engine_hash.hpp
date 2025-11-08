@@ -24,4 +24,8 @@ private:
     
     void buildBroadPhase(const std::vector<Particle>& particles);
     void narrowPhase(std::vector<Particle>& particles);
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> sian
